@@ -18,10 +18,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Gradle Kur ve APK Hazirla
+    - name: Gradle Ortamini Hazirla
       uses: gradle/actions/setup-gradle@v4
-      with:
-        arguments: assembleDebug
+
+    - name: APK Hazirla
+      run: chmod +x gradlew && ./gradlew assembleDebug
 
     - name: APK Dosyasini Yukle
       uses: actions/upload-artifact@v4
