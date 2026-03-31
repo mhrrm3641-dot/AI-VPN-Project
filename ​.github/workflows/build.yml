@@ -2,7 +2,7 @@ name: Android APK Olusturucu
 
 on:
   push:
-    branches: [ "Ana" ]
+    branches: [ "ana" ]
   workflow_dispatch:
 
 jobs:
