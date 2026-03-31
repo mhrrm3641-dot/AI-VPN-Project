@@ -2,8 +2,8 @@ name: Android APK Olusturucu
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch: # İsterseniz manuel olarak da başlatabilirsiniz
+    branches: [ "Ana" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,14 +23,14 @@ jobs:
     - name: Gradle'i Kur
       uses: gradle/actions/setup-gradle@v4
 
-    - name: Calistirma Izni Ver (chmod)
+    - name: Calistirma Izni Ver
       run: chmod +x gradlew
 
-    - name: APK Hazirla (Build)
+    - name: APK Hazirla
       run: ./gradlew assembleDebug
 
     - name: APK Dosyasini Yukle
       uses: actions/upload-artifact@v4
       with:
-        name: VPN-Uygulamasi-Debug
+        name: VPN-Uygulamasi
         path: app/build/outputs/apk/debug/*.apk
