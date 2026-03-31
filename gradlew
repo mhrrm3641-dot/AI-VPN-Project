@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-exec "./gradle/wrapper/gradle-wrapper.jar" "$@"
+DIRNAME=$(dirname "$0")
+exec "$DIRNAME/gradle/wrapper/gradle-wrapper.jar" "$@"
