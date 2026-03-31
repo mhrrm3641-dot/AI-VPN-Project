@@ -2,7 +2,7 @@ name: VPN APK Olusturucu
 
 on:
   push:
-    branches: [ "Ana", "Main" ]
+    branches: [ "Ana", "main" ]
   workflow_dispatch:
 
 jobs:
@@ -18,14 +18,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Gradle Izni Ver
-      run: chmod +x gradlew
-
-    - name: APK Hazirla
-      run: ./gradlew assembleDebug
-
-    - name: APK Dosyasini Disari Aktar
-      uses: actions/upload-artifact@v4
+    - name: Gradle Kur ve APK Hazirla
+      uses: gradle/actions/setup-gradle@v3
       with:
-        name: VPN-Uygulamam
-        path: app/build/outputs/apk/debug/app-debug.apk
+        arguments: assembleDebug
